@@ -202,8 +202,22 @@ div {
 }
 
 .miniProjectContent {
+  @extend .flex;
   width: 100%;
   height: 200px;
   margin: auto;
   background-color: grey;
+}
+
+.target {
+  width: 20%;
+  height: 100%;
+  background-color: green;
+}
+
+.draggable {
+  @extend .target;
+  width: 15%;
+  height: 80%;
+  margin: auto;
 }
