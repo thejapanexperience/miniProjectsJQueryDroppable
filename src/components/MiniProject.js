@@ -1,14 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router';
+import MiniProjectContent from './MiniProjectContent';
 
 const MiniProject = () => {
   return (
     <div className="section1Box">
       <div className="section1">
-        <h2 className="titleText">Title</h2>
+        <h2 className="titleText">Drag and Drop</h2>
         <p className="bodyText">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Testing a simple drag and drop interface with an eye towards creating education games for Eduku.
         </p>
+        <MiniProjectContent />
       </div>
 
     </div>
