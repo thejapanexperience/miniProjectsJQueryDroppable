@@ -4,6 +4,7 @@ import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import Target from './Target';
 import Draggable from './Draggable';
+import Naive from './DragAroundNaive/Container'
 
 class MiniProjectContent extends React.Component {
 
@@ -28,6 +29,8 @@ render() {
         <Target backgroundColor={'red'}/>
         <Draggable backgroundColor={'purple'}/>
       </div>
+      <div className="empty"/>
+      <Naive/>
     </div>
   );
 }
