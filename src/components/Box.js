@@ -17,16 +17,21 @@ const style = {
 
 const boxSource = {
   beginDrag(props) {
-    console.log('in Box beginDrag');
-    let { id, left, top } = props;
+    let { id, left, top, box } = props;
+    console.log('id: ', id)
+    console.log('left: ', left)
+    console.log('top: ', top)
+    let elBox = document.getElementById(`${box}`);
+    console.log('elBox: ', elBox)
+    console.log('elBox.offsetLeft: ', elBox.offsetLeft)
     if (isNaN(left)){
-      left = 0;
+      left = elBox.offsetLeft;
+      console.log('left: ', left)
     }
     if (isNaN(top)){
-      top = 0;
+      top = elBox.offsetTop;
+      console.log('top: ', top)
     }
-    console.log('left: ', left)
-    // left == NaN ? left = 0 : left = left;
     return { id, left, top };
   },
 };
@@ -46,27 +51,17 @@ export default class Box extends Component {
     children: PropTypes.node,
   };
 
-  componentWillUpdate(){
-    console.log('componentWillUpdate');
-    let elBox = document.getElementById("box");
-    let elTarget = document.getElementById('target1')
-    console.log('elBox.offsetLeft: ', elBox.offsetLeft)
-    console.log('elTarget.offsetLeft: ', elTarget.offsetLeft)
-  }
-
-
   render() {
 
-    console.log('in Box render');
-    const { hideSourceOnDrag, left, top, connectDragSource, isDragging, children } = this.props;
+    const { hideSourceOnDrag, left, top, connectDragSource, isDragging, children, box } = this.props;
     if (isDragging && hideSourceOnDrag) {
       return null;
     }
 
-    let position = document.getElement
+    console.log('box: ', box)
 
     return connectDragSource(
-        <div className="box" id="box" style={{ ...style, left, top }}>
+        <div className="box" id={box} style={{ ...style, left, top }}>
           {children}
         </div>,
     );

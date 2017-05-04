@@ -1,28 +1,32 @@
 import React from 'react';
 import {Link} from 'react-router';
-// import { DragDropContext } from 'react-dnd';
-// import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import Target from './Target';
-import Draggable from './Draggable';
-import Naive from './DragAroundNaive/index'
+import TargetInactive from './TargetInactive';
 
-class MiniProjectContent extends React.Component {
+
+@DragDropContext(HTML5Backend)
+export default class MiniProjectContent extends React.Component {
 
   constructor() {
   super()
-  // this.state = {
-  //   knightPosition: [1,7]
-  // }
-}
-render() {
+  }
+
+  render() {
 
   return (
     <div className="miniProjectContent">
       <div className="empty"/>
-      {/* <Naive/> */}
       <div className="dragAround" id="dragAround">
-        <Target id={'target1'} backgroundColor={'lightblue'} width={'50%'}/>
-        {/* <Draggable backgroundColor={'purple'}/> */}
+        <Target box={'one'} id={'target1'} backgroundColor={'pink'} width={'50%'} left={'125%'} top={'25%'} title={'Drag me to the pink box'} />
+        <TargetInactive id={'target2'} backgroundColor={'orange'} width={'50%'}/>
+      </div>
+
+      <div className="dragAround" id="dragAround">
+        <Target box={'two'} id={'target3'} backgroundColor={'lightgreen'} width={'25%'} left={'275%'} top={'25%'} title={'Drag me to the green box'} />
+        <TargetInactive id={'target4'} backgroundColor={'lightblue'} width={'25%'} />
+        <TargetInactive id={'target5'} backgroundColor={'lightgrey'} width={'50%'}/>
       </div>
       <div className="empty"/>
       {/* <div className="dragToTarget">
@@ -35,6 +39,3 @@ render() {
   );
 }
 }
-
-export default MiniProjectContent
-// export default DragDropContext(HTML5Backend)(MiniProjectContent)
