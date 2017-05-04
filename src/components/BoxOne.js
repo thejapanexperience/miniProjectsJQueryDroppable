@@ -3,18 +3,10 @@ import PropTypes from 'prop-types';
 import { DragSource } from 'react-dnd';
 import ItemTypes from './ItemTypes';
 
-let boxValue;
-
 const boxSource = {
   beginDrag(props) {
     let { id, left, top, box } = props;
-    boxValue = box
-    console.log('id: ', id)
-    console.log('left: ', left)
-    console.log('top: ', top)
     let elBox = document.getElementById(`${box}`);
-    console.log('elBox: ', elBox)
-    console.log('elBox.offsetLeft: ', elBox.offsetLeft)
     if (isNaN(left)){
       left = elBox.offsetLeft;
       console.log('left: ', left)
@@ -24,19 +16,14 @@ const boxSource = {
       console.log('top: ', top)
     }
     return { id, left, top };
-  },
+  }
 };
-
-console.log('boxValue: ', boxValue);
-if (boxValue = 'One'){
-
-}
 
 @DragSource(ItemTypes.BOXONE, boxSource, (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
   isDragging: monitor.isDragging(),
 }))
-export default class Box extends Component {
+export default class BoxOne extends Component {
   static propTypes = {
     connectDragSource: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,

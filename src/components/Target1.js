@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import update from 'react/lib/update';
 import { DropTarget } from 'react-dnd';
 import ItemTypes from './ItemTypes';
-import Draggable from './Draggable';
-import Box from './Box';
+import BoxOne from './BoxOne';
 
 const boxTarget = {
   drop(props, monitor, component) {
@@ -28,7 +27,7 @@ function collect(connect, monitor) {
 @DropTarget(ItemTypes.BOXONE, boxTarget, connect => ({
   connectDropTarget: connect.dropTarget(),
 }))
-export default class Target extends Component {
+export default class Target1 extends Component {
 
   constructor(props) {
     console.log('in constructor for Target');
@@ -61,7 +60,7 @@ render() {
   return connectDropTarget(
     <div className="target" id={id} style={{ backgroundColor , width }}>
       <div className="targetInner">
-        <Box
+        <BoxOne
           box={box}
           id={id}
           left={boxes.a.left}
@@ -70,7 +69,7 @@ render() {
           color={'black'}
         >
           {boxes.a.title}
-        </Box>
+        </BoxOne>
       </div>
     </div>
   );
