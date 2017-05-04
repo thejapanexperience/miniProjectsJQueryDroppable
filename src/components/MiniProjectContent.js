@@ -17,13 +17,21 @@ render() {
 
   return (
     <div className="miniProjectContent">
-      <Target backgroundColor={'orange'}/>
-      <Target backgroundColor={'yellow'}/>
-      <Target backgroundColor={'red'}/>
-      <Draggable backgroundColor={'purple'}/>
+      <div className="dragAround">
+        <Target backgroundColor={'orange'} width={'50%'}/>
+        <Draggable backgroundColor={'purple'}/>
+      </div>
+      <div className="empty"/>
+      <div className="dragToTarget">
+        <Target backgroundColor={'orange'}/>
+        <Target backgroundColor={'yellow'}/>
+        <Target backgroundColor={'red'}/>
+        <Draggable backgroundColor={'purple'}/>
+      </div>
     </div>
   );
 }
 }
 
-export default DragDropContext(HTML5Backend)(MiniProjectContent)
+export default MiniProjectContent
+// export default DragDropContext(HTML5Backend)(MiniProjectContent)

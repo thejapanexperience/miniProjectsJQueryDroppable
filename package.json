@@ -121,7 +121,7 @@
             "env",
             {
               "es2015": {
-                "modules": false
+                "modules": true
               }
             }
           ]

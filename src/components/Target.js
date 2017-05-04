@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
+import ItemTypes from './ItemTypes';
+import { DropTarget } from 'react-dnd';
 
-class Target extends React.Component {
+const squareTarget = {
+  drop(props) {}
+};
+
+
+function collect(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
+  };
+}
+
+class Target extends Component {
 
   constructor() {
   super()
@@ -9,12 +23,12 @@ class Target extends React.Component {
   // }
 }
 render() {
+  let { backgroundColor, width} = this.props
 
-  let color = this.props.backgroundColor
-  console.log('color: ', color)
 
+  // return connectDropTarget(
   return (
-    <div className="target" style={{backgroundColor:color}}>
+    <div className="target" style={{ backgroundColor , width }}>
       Target
     </div>
   );
@@ -22,3 +36,4 @@ render() {
 }
 
 export default Target;
+// export default DropTarget(ItemTypes.DRAGGABLE, squareTarget, collect)(Target);

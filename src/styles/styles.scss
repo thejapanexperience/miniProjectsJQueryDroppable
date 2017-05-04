@@ -199,6 +199,7 @@ div {
   @extend .font2;
   @include responsive-font(2vw, 20px, 20px, 20px);
   padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .miniProjectContent {
@@ -207,6 +208,21 @@ div {
   height: 200px;
   margin: auto;
   background-color: grey;
+}
+
+.dragAround {
+  @extend .flex;
+  width: 100%;
+}
+
+.dragToTarget {
+  @extend .flex;
+  width: 100%;
+}
+
+.empty {
+  width: 100%;
+  height: auto;
 }
 
 .target {
@@ -220,4 +236,7 @@ div {
   width: 15%;
   height: 80%;
   margin: auto;
+  color: white;
+  font-size: 25px;
+  cursor: move;
 }
