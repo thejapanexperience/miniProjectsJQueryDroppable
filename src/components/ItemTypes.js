@@ -1,3 +1,7 @@
 export default {
-  DRAGGABLE: 'draggable',
+  BOX: 'box',
 };
+
+// export default {
+//   DRAGGABLE: 'draggable',
+// };
