@@ -8,7 +8,7 @@ const MiniProject = () => {
       <div className="section1">
         <h2 className="titleText">Drag and Drop</h2>
         <p className="bodyText">
-          Testing a simple drag and drop interface using React and <span> </span>
+          Testing simple drag and drop functionality using React and <span> </span>
           <a href="http://react-dnd.github.io/react-dnd/docs-overview.html">React-dnd</a> .
         </p>
         <MiniProjectContent />

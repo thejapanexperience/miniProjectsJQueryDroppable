@@ -66,7 +66,6 @@ body {
   @extend .font1;
   padding: 0;
   margin: 0;
-  // background-color: red;
   font-size: 16px;
 }
 div {
@@ -254,6 +253,7 @@ a {
 
 .box {
   position: absolute;
+  box-shadow: 10px 10px 8px rgba(0,0,0,.35);
   background-color: white;
   padding: 0.5rem 1rem;
   cursor: move;
