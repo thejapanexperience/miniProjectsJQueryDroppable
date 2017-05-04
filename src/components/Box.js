@@ -3,21 +3,12 @@ import PropTypes from 'prop-types';
 import { DragSource } from 'react-dnd';
 import ItemTypes from './ItemTypes';
 
-const style = {
-  // position: 'absolute',
-  // backgroundColor: 'white',
-  // padding: '0.5rem 1rem',
-  // cursor: 'move',
-  // width: '15%',
-  // height: '80%',
-  // margin: 'auto',
-  // color: 'black',
-  // fontSize: '16px',
-};
+let boxValue;
 
 const boxSource = {
   beginDrag(props) {
     let { id, left, top, box } = props;
+    boxValue = box
     console.log('id: ', id)
     console.log('left: ', left)
     console.log('top: ', top)
@@ -36,7 +27,12 @@ const boxSource = {
   },
 };
 
-@DragSource(ItemTypes.BOX, boxSource, (connect, monitor) => ({
+console.log('boxValue: ', boxValue);
+if (boxValue = 'One'){
+
+}
+
+@DragSource(ItemTypes.BOXONE, boxSource, (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
   isDragging: monitor.isDragging(),
 }))
@@ -44,9 +40,9 @@ export default class Box extends Component {
   static propTypes = {
     connectDragSource: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
-    // id: PropTypes.any.isRequired,
-    // left: PropTypes.string.isRequired,
-    // top: PropTypes.string.isRequired,
+    id: PropTypes.any.isRequired,
+    left: PropTypes.any.isRequired,
+    top: PropTypes.any.isRequired,
     hideSourceOnDrag: PropTypes.bool.isRequired,
     children: PropTypes.node,
   };
@@ -61,7 +57,7 @@ export default class Box extends Component {
     console.log('box: ', box)
 
     return connectDragSource(
-        <div className="box" id={box} style={{ ...style, left, top }}>
+        <div className="box" id={box} style={{ left, top }}>
           {children}
         </div>,
     );

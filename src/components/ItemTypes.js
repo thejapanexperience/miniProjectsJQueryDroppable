@@ -1,5 +1,6 @@
 export default {
-  BOX: 'box',
+  BOXONE: 'boxOne',
+  BOXTWO: 'boxTwo',
   NONE: 'none',
 };
 

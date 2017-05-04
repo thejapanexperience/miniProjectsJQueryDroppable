@@ -25,7 +25,7 @@ function collect(connect, monitor) {
   };
 }
 
-@DropTarget(ItemTypes.BOX, boxTarget, connect => ({
+@DropTarget(ItemTypes.BOXONE, boxTarget, connect => ({
   connectDropTarget: connect.dropTarget(),
 }))
 export default class Target extends Component {
