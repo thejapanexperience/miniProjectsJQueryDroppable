@@ -68,7 +68,9 @@ render() {
           hideSourceOnDrag={this.state.hideSourceOnDrag}
           color={'black'}
         >
-          {boxes.a.title}
+          <div className="boxText">
+            {boxes.a.title}
+          </div>
         </BoxTwo>
       </div>
     </div>

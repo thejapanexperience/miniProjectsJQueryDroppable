@@ -243,24 +243,49 @@ a {
 
 
 .targetInner {
-  position: absolute;
+  @extend .flex;
+  position: relative;
   width: 100%;
   height: 100%;
   // background-color: pink;
   color: white;
 }
 
+.previewBox{
+  @extend .flex;
+  // width: 25%;
+  // height: auto;
+  // width: calc(50% - 30px;
+  // height: 50%;
+  background: beige;
+  box-shadow: 10px 10px 8px rgba(0,0,0,.35);
+}
+
+.previewContent {
+  @extend .font1;
+  @include responsive-font(3vw, 16px, 25px, 20px);
+  margin: auto;
+}
 
 .box {
+  @extend .flex;;
+  text-align: center;
   position: absolute;
   box-shadow: 10px 10px 8px rgba(0,0,0,.35);
   background-color: white;
-  padding: 0.5rem 1rem;
+  // padding: 0.5rem 1rem;
   cursor: move;
-  width: calc(50% - 30px;
+  width: 50%;
   height: 50%;
   margin: auto;
   color: black;
-  font-size: 16px;
   z-index: 1;
+}
+
+.boxText {
+  @extend .font1;
+  @include responsive-font(1.5vw, 12px, 25px, 20px);
+  margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }

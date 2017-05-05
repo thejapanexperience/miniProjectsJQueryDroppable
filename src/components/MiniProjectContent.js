@@ -11,13 +11,13 @@ import TargetInactive from './TargetInactive';
 const HTML5toTouch = {
   backends: [
     {
-      backend: HTML5Backend
-    },
-    {
       backend: TouchBackend({enableMouseEvents: true}), // Note that you can call your backends with options
       preview: true,
       transition: TouchTransition
-    }
+    },
+    {
+      backend: HTML5Backend
+    },
   ]
 };
 
@@ -32,14 +32,19 @@ export default class MiniProjectContent extends React.Component {
 
 
   generatePreview(type, item, style) {
-    let itemPreview = item;
-    console.log('itemPreview: ', itemPreview)
-    console.log('type: ', type)
-    console.log('item: ', item)
-    console.log('style: ', style)
-    Object.assign(style, {backgroundColor: item.color, width: '50px', height: '50px'});
-    return <div style={style}>Generated</div>
-    // return itemPreview;
+    console.log('in generatePreview');
+    let initHeight = document.getElementById(item.id).offsetHeight;
+    let height = initHeight * 0.5;
+    let initWidth = document.getElementById(item.id).offsetWidth;
+    let width = initWidth * 0.5
+    Object.assign(style, {height: height, width: width});
+    console.log('height, width: ', height, width)
+    return <div className="previewBox" style={style}>
+      <div className="previewContent">
+        {/* {itemDetails} */}
+        Moving...
+      </div>
+    </div>
   }
 
 
@@ -52,13 +57,14 @@ export default class MiniProjectContent extends React.Component {
         <Target1 box={'BOXONE'} id={'target1'} backgroundColor={'pink'} width={'50%'} left={'125%'} top={'25%'} title={'Drag me to the pink box'} />
         <TargetInactive id={'target2'} backgroundColor={'orange'} width={'50%'}/>
         <Preview generator={this.generatePreview} />
-
+        {/* <ItemPreview key="__preview" name="Item" /> */}
       </div>
 
       <div className="dragAround" id="dragAround">
         <Target2 box={'BOXTWO'} id={'target3'} backgroundColor={'lightgreen'} width={'25%'} left={'275%'} top={'25%'} title={'Drag me to the green box'} />
         <TargetInactive id={'target4'} backgroundColor={'lightblue'} width={'25%'} />
         <TargetInactive id={'target5'} backgroundColor={'lightgrey'} width={'50%'}/>
+        <Preview generator={this.generatePreview} />
       </div>
       <div className="empty"/>
       {/* <div className="dragToTarget">
