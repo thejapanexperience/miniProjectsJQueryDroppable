@@ -50,10 +50,11 @@ export default class Target2 extends Component {
   }
 
 
-render() {
-  const { connectDropTarget } = this.props;
-  const { backgroundColor, width, id, box } = this.props
-  const { boxes } = this.state;
+  render() {
+    const { connectDropTarget } = this.props;
+    let { backgroundColor, width, id, box, reset, resetLeft, resetTop, resetTitle, resetFunc } = this.props
+    const { boxes } = this.state;
+    console.log('boxes: ', boxes)
 
   if (document.getElementById(id)) {
     let targetHeight = document.getElementById(id).offsetHeight;
@@ -68,6 +69,12 @@ render() {
 
     boxes.a.left = `${percentageLeft}%`
     boxes.a.top = `${percentageTop}%`
+  }
+
+  if (reset || boxes.a.left === 'NaN%') {
+    boxes.a.left = resetLeft;
+    boxes.a.top = resetTop;
+    boxes.a.title = resetTitle;
   }
 
   return connectDropTarget(

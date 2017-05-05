@@ -28,8 +28,25 @@ export default class MiniProjectContent extends React.Component {
 
   constructor() {
     super()
+    this.state = {
+      reset: false,
+    };
+    this.resetFunc = this.resetFunc.bind(this)
   }
 
+
+  resetFunc(e) {
+    if(!e){
+      return this.setState({
+        reset: false
+      })
+    }
+    e.preventDefault()
+    console.log('in reset');
+    this.setState ({
+      reset: true
+    });
+  }
 
   generatePreview(type, item, style) {
     let initHeight = document.getElementById(item.id).offsetHeight;
@@ -45,28 +62,40 @@ export default class MiniProjectContent extends React.Component {
     </div>
   }
 
+  componentWillUpdate(nextProps, nextState){
+    console.log('in componentWillUpdate MiniProjectContent');
+    console.log('nextState: ', nextState)
+    if (nextState.reset){
+      console.log('reset is true so about to set state');
+      this.setState({
+        reset: false
+      })
+    }
+  }
 
   render() {
 
-
-
   return (
     <div className="miniProjectContent">
+      <div className="resetBoxContainer">
+        <div className="resetBox">
+          <div className="resetBoxText" onClick={this.resetFunc}>Reset</div>
+        </div>
+      </div>
       <div className="empty"/>
       <div className="dragAround" id="dragAround">
-        <Target1 box={'BOXONE'} id={'target1'} backgroundColor={'pink'} width={'50%'} left={'125%'} top={'25%'} title={'Drag me to the pink box'} />
-        <TargetInactive id={'target2'} backgroundColor={'orange'} width={'50%'}/>
-        <Preview generator={this.generatePreview} />
-        {/* <ItemPreview key="__preview" name="Item" /> */}
-      </div>
+        <Target1 resetFunc={this.resetFunc} reset={this.state.reset} resetLeft={'125%'} resetTop={'25%'} resetTitle={'Drag me to the pink box'} box={'BOXONE'} id={'target1'} backgroundColor={'pink'} width={'50%'} left={'125%'} top={'25%'} title={'Drag me to the pink box'} />
+          <TargetInactive id={'target2'} backgroundColor={'orange'} width={'50%'}/>
+          <Preview generator={this.generatePreview} />
+        </div>
 
-      <div className="dragAround" id="dragAround">
-        <Target2 box={'BOXTWO'} id={'target3'} backgroundColor={'lightgreen'} width={'25%'} left={'275%'} top={'25%'} title={'Drag me to the green box'} />
-        <TargetInactive id={'target4'} backgroundColor={'lightblue'} width={'25%'} />
-        <TargetInactive id={'target5'} backgroundColor={'lightgrey'} width={'50%'}/>
-        <Preview generator={this.generatePreview} />
-      </div>
-      <div className="empty"/>
+          <div className="dragAround" id="dragAround">
+            <Target2 resetFunc={this.resetFunc} reset={this.state.reset} resetLeft={'275%'} resetTop={'25%'} resetTitle={'Drag me to the green box'} box={'BOXTWO'} id={'target3'} backgroundColor={'lightgreen'} width={'25%'} left={'275%'} top={'25%'} title={'Drag me to the green box'} />
+              <TargetInactive id={'target4'} backgroundColor={'lightblue'} width={'25%'} />
+              <TargetInactive id={'target5'} backgroundColor={'lightgrey'} width={'50%'}/>
+              <Preview generator={this.generatePreview} />
+            </div>
+              <div className="empty"/>
       {/* <div className="dragToTarget">
         <Target backgroundColor={'orange'}/>
         <Target backgroundColor={'yellow'}/>
