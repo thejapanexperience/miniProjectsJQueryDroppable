@@ -41,8 +41,6 @@ export default class BoxOne extends Component {
       return null;
     }
 
-    console.log('box: ', box)
-
     return connectDragSource(
         <div className="box" id={box} style={{ left, top }}>
           {children}

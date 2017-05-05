@@ -32,13 +32,11 @@ export default class MiniProjectContent extends React.Component {
 
 
   generatePreview(type, item, style) {
-    console.log('in generatePreview');
     let initHeight = document.getElementById(item.id).offsetHeight;
     let height = initHeight * 0.5;
     let initWidth = document.getElementById(item.id).offsetWidth;
     let width = initWidth * 0.5
     Object.assign(style, {height: height, width: width});
-    console.log('height, width: ', height, width)
     return <div className="previewBox" style={style}>
       <div className="previewContent">
         {/* {itemDetails} */}
@@ -49,6 +47,8 @@ export default class MiniProjectContent extends React.Component {
 
 
   render() {
+
+
 
   return (
     <div className="miniProjectContent">

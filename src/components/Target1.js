@@ -11,7 +11,6 @@ const boxTarget = {
     const delta = monitor.getDifferenceFromInitialOffset();
     const left = Math.round(item.left + delta.x);
     const top = Math.round(item.top + delta.y);
-    console.log('item.id: ', item.id)
     component.moveBox(item.id, left, top);
   },
 };
@@ -30,8 +29,7 @@ function collect(connect, monitor) {
 export default class Target1 extends Component {
 
   constructor(props) {
-    console.log('in constructor for Target');
-    console.log('props: ', props)
+
     super(props);
     this.state = {
       hideSourceOnDrag: true,
@@ -54,8 +52,22 @@ export default class Target1 extends Component {
 
 render() {
   const { connectDropTarget } = this.props;
-  const { backgroundColor, width, id, box } = this.props
+  let { backgroundColor, width, id, box } = this.props
   const { boxes } = this.state;
+
+if (document.getElementById(id)) {
+  let targetHeight = document.getElementById(id).offsetHeight;
+  let targetWidth = document.getElementById(id).offsetWidth;
+  console.log('targetWidth, targetHeight: ', targetWidth, targetHeight)
+
+  let percentageLeft = boxes.a.left / targetWidth * 100
+  console.log('percentageLeft: ', percentageLeft)
+  let percentageTop = boxes.a.top / targetHeight * 100
+  console.log('percentageTop: ', percentageTop)
+  boxes.a.left = `${percentageLeft}%`
+  boxes.a.top = `${percentageTop}%`
+}
+
 
   return connectDropTarget(
     <div className="target" id={id} style={{ backgroundColor , width }}>

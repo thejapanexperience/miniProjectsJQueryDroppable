@@ -11,7 +11,6 @@ const boxTarget = {
     const delta = monitor.getDifferenceFromInitialOffset();
     const left = Math.round(item.left + delta.x);
     const top = Math.round(item.top + delta.y);
-    console.log('item.id: ', item.id)
     component.moveBox(item.id, left, top);
   },
 };
@@ -30,8 +29,7 @@ function collect(connect, monitor) {
 export default class Target2 extends Component {
 
   constructor(props) {
-    console.log('in constructor for Target');
-    console.log('props: ', props)
+
     super(props);
     this.state = {
       hideSourceOnDrag: true,
