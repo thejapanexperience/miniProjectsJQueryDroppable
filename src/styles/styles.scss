@@ -284,8 +284,6 @@ a {
 
 .boxText {
   @extend .font1;
-  @include responsive-font(1.5vw, 12px, 25px, 20px);
+  @include responsive-font(1.5vw, 0px, 25px, 20px);
   margin: auto;
-  padding-left: 10px;
-  padding-right: 10px;
 }

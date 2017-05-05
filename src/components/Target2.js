@@ -55,6 +55,21 @@ render() {
   const { backgroundColor, width, id, box } = this.props
   const { boxes } = this.state;
 
+  if (document.getElementById(id)) {
+    let targetHeight = document.getElementById(id).offsetHeight;
+    let targetWidth = document.getElementById(id).offsetWidth;
+
+    let percentageLeft = boxes.a.left / targetWidth * 100
+    let percentageTop = boxes.a.top / targetHeight * 100
+
+    if (boxes.a.left <= targetWidth && boxes.a.top <= targetHeight){
+      boxes.a.title = 'Well done!'
+    }
+
+    boxes.a.left = `${percentageLeft}%`
+    boxes.a.top = `${percentageTop}%`
+  }
+
   return connectDropTarget(
     <div className="target" id={id} style={{ backgroundColor , width }}>
       <div className="targetInner">

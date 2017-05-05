@@ -58,12 +58,14 @@ render() {
 if (document.getElementById(id)) {
   let targetHeight = document.getElementById(id).offsetHeight;
   let targetWidth = document.getElementById(id).offsetWidth;
-  console.log('targetWidth, targetHeight: ', targetWidth, targetHeight)
 
   let percentageLeft = boxes.a.left / targetWidth * 100
-  console.log('percentageLeft: ', percentageLeft)
   let percentageTop = boxes.a.top / targetHeight * 100
-  console.log('percentageTop: ', percentageTop)
+
+  if (boxes.a.left <= targetWidth && boxes.a.top <= targetHeight){
+    boxes.a.title = 'Well done!'
+  }
+
   boxes.a.left = `${percentageLeft}%`
   boxes.a.top = `${percentageTop}%`
 }
