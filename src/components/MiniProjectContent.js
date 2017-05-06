@@ -54,12 +54,21 @@ export default class MiniProjectContent extends React.Component {
     let initWidth = document.getElementById(item.id).offsetWidth;
     let width = initWidth * 0.5
     Object.assign(style, {height: height, width: width});
-    return <div className="previewBox" style={style}>
-      <div className="previewContent">
-        {/* {itemDetails} */}
-        Moving...
+
+    if (item.id === 'target1'){
+      return <div className="previewBox" style={style}>
+        <div className="previewContent">
+          Moving big box
+        </div>
       </div>
-    </div>
+    } else if (item.id === 'target3') {
+      return <div className="previewBox" style={style}>
+        <div className="previewContent">
+          Moving smaller box
+        </div>
+      </div>
+    }
+
   }
 
   componentWillUpdate(nextProps, nextState){
@@ -77,9 +86,9 @@ export default class MiniProjectContent extends React.Component {
 
   return (
     <div className="miniProjectContent">
-      <div className="resetBoxContainer">
+      <div className="resetBoxContainer" onClick={this.resetFunc}>
         <div className="resetBox">
-          <div className="resetBoxText" onClick={this.resetFunc}>Reset</div>
+          <div className="resetBoxText">Reset</div>
         </div>
       </div>
       <div className="empty"/>
