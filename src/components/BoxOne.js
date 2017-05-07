@@ -9,11 +9,9 @@ const boxSource = {
     let elBox = document.getElementById(`${box}`);
     if (isNaN(left)){
       left = elBox.offsetLeft;
-      console.log('left: ', left)
     }
     if (isNaN(top)){
       top = elBox.offsetTop;
-      console.log('top: ', top)
     }
     return { id, left, top };
   }
@@ -24,15 +22,15 @@ const boxSource = {
   isDragging: monitor.isDragging(),
 }))
 export default class BoxOne extends Component {
-  static propTypes = {
-    connectDragSource: PropTypes.func.isRequired,
-    isDragging: PropTypes.bool.isRequired,
-    id: PropTypes.any.isRequired,
-    left: PropTypes.any.isRequired,
-    top: PropTypes.any.isRequired,
-    hideSourceOnDrag: PropTypes.bool.isRequired,
-    children: PropTypes.node,
-  };
+  // static propTypes = {
+  //   connectDragSource: PropTypes.func.isRequired,
+  //   isDragging: PropTypes.bool.isRequired,
+  //   id: PropTypes.any.isRequired,
+  //   left: PropTypes.any.isRequired,
+  //   top: PropTypes.any.isRequired,
+  //   hideSourceOnDrag: PropTypes.bool.isRequired,
+  //   children: PropTypes.node,
+  // };
 
   render() {
 

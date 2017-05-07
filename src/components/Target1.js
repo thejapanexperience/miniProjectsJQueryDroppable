@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import update from 'react/lib/update';
 import { DropTarget } from 'react-dnd';
 import ItemTypes from './ItemTypes';
@@ -16,12 +16,12 @@ const boxTarget = {
 };
 
 
-function collect(connect, monitor) {
-  return {
-    connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver()
-  };
-}
+// function collect(connect, monitor) {
+//   return {
+//     connectDropTarget: connect.dropTarget(),
+//     isOver: monitor.isOver()
+//   };
+// }
 
 @DropTarget([ItemTypes.BOXONE], boxTarget, connect => ({
   connectDropTarget: connect.dropTarget(),
@@ -51,9 +51,8 @@ export default class Target1 extends Component {
 
 render() {
   const { connectDropTarget } = this.props;
-  let { backgroundColor, width, id, box, reset, resetLeft, resetTop, resetTitle, resetFunc } = this.props
+  let { backgroundColor, width, id, box, reset, resetLeft, resetTop, resetTitle } = this.props
   const { boxes } = this.state;
-  console.log('boxes: ', boxes)
 
 if (document.getElementById(id)) {
   let targetHeight = document.getElementById(id).offsetHeight;

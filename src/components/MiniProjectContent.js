@@ -27,13 +27,20 @@ const HTML5toTouch = {
 export default class MiniProjectContent extends React.Component {
 
   constructor() {
-    super()
+    super();
     this.state = {
       reset: false,
     };
     this.resetFunc = this.resetFunc.bind(this)
   }
 
+  componentWillUpdate(nextProps, nextState){
+    if (nextState.reset){
+      this.setState({
+        reset: false
+      })
+    }
+  }
 
   resetFunc(e) {
     if(!e){
@@ -42,7 +49,6 @@ export default class MiniProjectContent extends React.Component {
       })
     }
     e.preventDefault()
-    console.log('in reset');
     this.setState ({
       reset: true
     });
@@ -68,19 +74,8 @@ export default class MiniProjectContent extends React.Component {
         </div>
       </div>
     }
-
   }
 
-  componentWillUpdate(nextProps, nextState){
-    console.log('in componentWillUpdate MiniProjectContent');
-    console.log('nextState: ', nextState)
-    if (nextState.reset){
-      console.log('reset is true so about to set state');
-      this.setState({
-        reset: false
-      })
-    }
-  }
 
   render() {
 

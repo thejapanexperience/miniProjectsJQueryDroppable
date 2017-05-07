@@ -1,12 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router';
+// import {Link} from 'react-router';
 import MiniProject from './MiniProject';
 
 const HomePage = () => {
   return (
     <div>
       <div className="backgroundImage"/>
-      <div className='mainContainer'>
+      <div className="mainContainer">
 
         <div className="section0">
           <div className="navBox">
@@ -35,7 +35,7 @@ const HomePage = () => {
                 {/* Resume */}
               </div>
             </div>
-            <div className="nav5"></div>
+            <div className="nav5"/>
             <div className="nav6" />
           </div>
         </div>
