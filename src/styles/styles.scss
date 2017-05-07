@@ -266,7 +266,7 @@ a {
 
 .previewContent {
   @extend .font1;
-  @include responsive-font(3vw, 16px, 25px, 20px);
+  @include responsive-font(3vw, 16px, 24px, 20px);
   margin: auto;
   text-align: center;
 }

@@ -40,7 +40,7 @@ export default class BoxTwo extends Component {
     if (isDragging && hideSourceOnDrag) {
       return null;
     }
-    
+
     return connectDragSource(
         <div className="box" id={box} style={{ left, top }}>
           {children}
