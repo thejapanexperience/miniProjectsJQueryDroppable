@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Personal Website",
   "engines": {
-    "node": "7.4.0"
+    "node": "6.6.0"
   },
   "scripts": {
     "preinstall": "node tools/nodeVersionCheck.js",
@@ -74,6 +74,7 @@
     "jest": "18.1.0",
     "json-loader": "0.5.4",
     "mockdate": "2.0.1",
+    "node-sass": "4.4.0",
     "npm-run-all": "3.1.2",
     "open": "0.0.5",
     "postcss-loader": "1.2.1",
@@ -84,7 +85,6 @@
     "redux-immutable-state-invariant": "1.2.4",
     "replace": "0.3.0",
     "rimraf": "2.5.4",
-    "sass-loader": "6.0.2",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "2.2.1",
@@ -94,7 +94,7 @@
     "webpack-md5-hash": "0.0.5"
   },
   "devDependencies": {
-    "node-sass": "^4.5.2"
+    "sass-loader": "6.0.2"
   },
   "keywords": [],
   "repository": {
