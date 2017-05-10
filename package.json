@@ -74,7 +74,6 @@
     "jest": "18.1.0",
     "json-loader": "0.5.4",
     "mockdate": "2.0.1",
-    "node-sass": "4.5.2",
     "npm-run-all": "3.1.2",
     "open": "0.0.5",
     "postcss-loader": "1.2.1",
@@ -93,6 +92,9 @@
     "webpack-dev-middleware": "1.9.0",
     "webpack-hot-middleware": "2.17.1",
     "webpack-md5-hash": "0.0.5"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.2",
   },
   "keywords": [],
   "repository": {
