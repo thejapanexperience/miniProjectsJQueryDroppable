@@ -16,9 +16,9 @@ const bundler = webpack(config);
 // Run Browsersync and use middleware for Hot Module Replacement
 browserSync({
   port: (process.env.PORT || 3005),
-  ui: {
-    port: (process.env.PORT || 3007)
-  },
+  // ui: {
+  //   port: (process.env.PORT || 3007)
+  // },
   server: {
     baseDir: 'src',
 
