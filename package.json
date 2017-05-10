@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Personal Website",
   "engines": {
-    "node": "6.6.0"
+    "npm": "4.2.0",
+    "node": "7.8.0"
   },
   "scripts": {
     "preinstall": "node tools/nodeVersionCheck.js",
