@@ -51,6 +51,15 @@ $colorGradient1: rgba(134,11,180,0.8);
 // $colorGradient2: rgba(236,64,103,0.8);
 $colorGradient2: rgba(230,20,100,0.8);
 // $colorGradient3: rgba(232,61,66,0.9);
+
+.background {
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, $colorGradient1 , $colorGradient2); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, $colorGradient1, $colorGradient2); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, $colorGradient1, $colorGradient2); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, $colorGradient1 , $colorGradient2); /* Standard syntax */
+}
+
 .transition1{
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
@@ -121,20 +130,20 @@ a {
   width: 100%;
   // background-color: black;
   // background-color: rgba(128,0,128,0.4);
-  background: red; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left, $colorGradient1 , $colorGradient2); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(right, $colorGradient1, $colorGradient2); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(right, $colorGradient1, $colorGradient2); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, $colorGradient1 , $colorGradient2); /* Standard syntax */
-  margin-left: auto;
+  // background: red; /* For browsers that do not support gradients */
+  // background: -webkit-linear-gradient(left, $colorGradient1 , $colorGradient2); /* For Safari 5.1 to 6.0 */
+  // background: -o-linear-gradient(right, $colorGradient1, $colorGradient2); /* For Opera 11.1 to 12.0 */
+  // background: -moz-linear-gradient(right, $colorGradient1, $colorGradient2); /* For Firefox 3.6 to 15 */
+  // background: linear-gradient(to right, $colorGradient1 , $colorGradient2); /* Standard syntax */
+  // margin-left: auto;
   margin-right: auto;
-  padding-top: 100px;
-  padding-bottom: 50px;
+  // padding-top: 100px;
+  padding-bottom: 20px;
 }
 
 .section0 {
   @extend.flex;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -169,9 +178,16 @@ a {
 .section1Box {
   @extend .flex;
   margin: auto;
-  width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 100px;
+  width: 97%;
+  max-width: 1024px;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  margin-left: auto;
+  @extend .background;
+  box-shadow: 10px 10px 8px rgba(0,0,0,.60), -10px -10px 8px rgba(0,0,0,.60);
+
 }
 
 .section1 {
